@@ -1,0 +1,78 @@
+[
+	{
+	"num": 1,
+	"imageFile": "by_the_fire_1.jpg",
+	"catagory": "By the Fire",
+	"name": "Chippewa Camp Scene",
+	"gawboyDescription": "The series of paintings in which fire light was kind of common theme.",
+	"gawboyAudio": "f1.mp3"
+	},
+	{
+	"num": 2,
+	"imageFile": "by_the_fire_2.jpg",
+	"catagory": "By the Fire",
+	"name": "Storyteller",
+	"gawboyDescription": "This is a cutout figure. It is painted on plywood and the plywood cutout kind of suggests a three dimensional form.",
+	"gawboyAudio": "f2.mp3"
+	},
+	{
+	"num": 3,
+	"imageFile": "by_the_fire_3.jpg",
+	"catagory": "By the Fire",
+	"name": "Joining the Women",
+	"gawboyDescription": "This is a girls coming of age ceremony just a part of it. The ceremony would be rather long lasting.",
+	"gawboyAudio": "f3.mp3"
+	},
+	{
+	"num": 4,
+	"imageFile": "by_the_fire_4.jpg",
+	"catagory": "By the Fire",
+	"name": "Joining the Women 2",
+	"gawboyDescription": "This was done on a plywood cut out. The plywood cut out was in a dome shape like a woman’s house and you have virtually the same type of scene.",
+	"gawboyAudio": "f4.mp3"
+	},
+	
+	
+	
+	{
+	"num": 1,
+	"imageFile": "in_the_circle_1.jpg",
+	"catagory": "In the Circle",
+	"name": "Nanboujou and Mishipishu",
+	"gawboyDescription": "This was done in 1993.  The Nanboujou had wounded the great panther curly tail and the great panther offered the riches of world to anyone who could cure him.  ",
+	"gawboyAudio": "c1.mp3"
+	},
+	{
+	"num": 2,
+	"imageFile": "in_the_circle_2.jpg",
+	"catagory": "In the Circle",
+	"name": "Lowering the Flag, Ball Club",
+	"gawboyDescription": "This was bought by a tribal official and it is Cass Lake somewhere now. This is the ball club Pow Wow and there is a girl scout there on the platform if you see that and a couple of the head dancers and singers that no doubt led that patriotic song when the flag was lowered at sunset at the ball club Pow Wow.",
+	"gawboyAudio": "c2.mp3"
+	},
+	{
+	"num": 3,
+	"imageFile": "in_the_circle_3.jpg",
+	"catagory": "In the Circle",
+	"name":	"Veteran’s Farewell",
+	"gawboyDescription": "The truck of 1940's vintage has brought a casket. You can see the local veteran’s group there near the grave waiting to do the veteran’s ceremony.",
+	"gawboyAudio": "c3.mp3"
+	},
+	{
+	"num": 4,
+	"imageFile": "in_the_circle_4.jpg",
+	"catagory": "In the Circle",
+	"name": "The Roundhouse",
+	"gawboyDescription": "This was based upon the roundhouse that used to be at Nett Lake.  Now days there is school buildings and public buildings on reservations and you don’t see these roundhouses much but I understand that there is an old one still at Lac Du Flambeau that is still being used and it was featured in a video enduring ways of Lac Du Flambeau people.",
+	"gawboyAudio": "c4.mp3"
+	},
+	{
+	"num": 5,
+	"imageFile": "in_the_circle_5.jpg",
+	"catagory": "In the Circle",
+	"name": "Home is the Sailor",
+	"gawboyDescription": "We see the old elder having put on his belt, two ladies with jingle dresses in the background, young lady with her two kids dancing.",
+	"gawboyAudio": "c5.mp3"
+	}
+]
+
