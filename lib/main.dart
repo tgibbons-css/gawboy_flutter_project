@@ -5,6 +5,8 @@ import 'package:just_audio/just_audio.dart';
 import 'datarepo.dart';
 import 'dataitem.dart';
 
+// This project was run on April 2023
+
 void main() {
   runApp(MyApp());
 }
@@ -21,8 +23,7 @@ class _MyAppState extends State<MyApp> {
   DataRepo repo = new DataRepo();
   Future<List<DataItem>> futureItems;
   AudioPlayer player;
-  bool languageState =
-      true; // state is true for Anishinaabe and false for English
+  bool languageState = true; // state is true for Anishinaabe and false for English
 
   @override
   void initState() {
