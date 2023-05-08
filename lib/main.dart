@@ -56,14 +56,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Gawbay Ojibwe',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: Text('SlideShow'),
+            title: Text('Gawboy Art Slideshow'),
           ),
           body: FutureBuilder<List<DataItem>>(
             future: futureItems,
@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
 
   Container textDisplayWidget(int index) {
     return Container(
-      alignment: FractionalOffset(0.5, 0.8),
+      alignment: FractionalOffset(0.6, 0.9),
       child: TextButton(
         onPressed: () {
           setState(() {
@@ -116,7 +116,9 @@ class _MyAppState extends State<MyApp> {
         },
         child: Text(
           getTextDescription(index),
+          textAlign: TextAlign.center,
           style: TextStyle(
+            backgroundColor: Colors.blueGrey.withOpacity(.7),
             fontWeight: FontWeight.bold,
             color: Colors.white,
             fontSize: 36,
@@ -134,7 +136,7 @@ class _MyAppState extends State<MyApp> {
       minAnimationDuration: Duration(milliseconds: 10000),
       maxAnimationDuration: Duration(milliseconds: 20000),
       child: Image.asset(repo.getImageFile(index),
-          fit: BoxFit.cover, height: double.infinity),
+          fit: BoxFit.fitHeight, height: double.negativeInfinity),
     );
   }
 }
