@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Gawboy Art Slideshow'),
+            title: Text('- Gawboy Art Slideshow -'),
           ),
           body: FutureBuilder<List<DataItem>>(
             future: futureItems,
