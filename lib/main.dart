@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kenburns/kenburns.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:scroll_snap_list/scroll_snap_list.dart';
+
 
 import 'datarepo.dart';
 import 'dataitem.dart';
@@ -21,7 +23,8 @@ class _MyAppState extends State<MyApp> {
   DataRepo repo = new DataRepo();
   Future<List<DataItem>> futureItems;
   AudioPlayer player;
-  bool languageState = true; // state is true for Anishinaabe and false for English
+ // bool languageState = true; // state is true for Anishinaabe and false for English
+
 
   @override
   void initState() {
@@ -42,13 +45,13 @@ class _MyAppState extends State<MyApp> {
     player.play();
   }
 
-  String getTextDescription(int index) {
-    if (languageState) {
-      return repo.getJourdainAnishinaabe(index);
-    } else {
-      return repo.getJourdainEnglish(index);
-    }
-  }
+  // String getTextDescription(int index) {
+  //   if (languageState) {
+  //     return repo.getJourdainAnishinaabe(index);
+  //   } else {
+  //     return repo.getJourdainEnglish(index);
+  //   }
+  // }
 
   // This widget is the root of your application.
   @override
@@ -87,7 +90,7 @@ class _MyAppState extends State<MyApp> {
       carouselController: _carouselController,
       itemBuilder: (BuildContext context, int index, int realIndex) {
         print("Carousel Builder --- playing audio " + index.toString());
-        playAudio(index);
+
         return Container(
           constraints: BoxConstraints.expand(
               height: MediaQuery.of(context).size.height),
@@ -95,6 +98,23 @@ class _MyAppState extends State<MyApp> {
               children: <Widget>[
                 imageDisplayWidget(index),
                 textDisplayWidget(index),
+                textDisplayWidgetOpposite(index),
+                Row(
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: floatingActionButtonPrevious(),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: floatingActionButtonNext(index),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: floatingActionButtonAudio(index),
+                    ),
+                  ],
+                ),
               ]),
         );
       },
@@ -102,7 +122,7 @@ class _MyAppState extends State<MyApp> {
         height: double.maxFinite,
         aspectRatio: 9/9,
         viewportFraction: 1.0,
-        autoPlay: true,
+        autoPlay: false,//a change
         autoPlayInterval: Duration(seconds: 10),
         autoPlayCurve: Curves.fastOutSlowIn,
         enlargeCenterPage: true,
@@ -110,6 +130,14 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+  FloatingActionButton floatingActionButtonAudio(int index){
+    return FloatingActionButton(
+      onPressed: () => playAudio(index),
+      child: Text('Sound'),
+      backgroundColor: Colors.green,
+
+    );
+  }
   Container textDisplayWidget(int index) {
     return Container(
         alignment: FractionalOffset.bottomCenter,
@@ -117,11 +145,11 @@ class _MyAppState extends State<MyApp> {
         onPressed: () {
       setState(() {
         print("----- text click -----");
-        languageState = !languageState;
+        //languageState = !languageState;
       });
         },
           child: Text(
-            getTextDescription(index),
+            repo.getJourdainAnishinaabe(index),
             textAlign: TextAlign.center,
             style: TextStyle(
               backgroundColor: Colors.blueGrey.withOpacity(.6),
@@ -134,13 +162,67 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+  FloatingActionButton floatingActionButtonNext(index)
+  {
+    return FloatingActionButton(
+      // onPressed: () => _carouselController.nextPage(
+      //     duration: Duration(milliseconds: 300), curve: Curves.linear),
+      onPressed: () async{
+        await _carouselController.nextPage(
+          duration: Duration(milliseconds: 300), curve: Curves.linear);
+          player.stop();
+      },
+      child: Text('->'),
+      backgroundColor: Colors.red,
+
+    );
+  }
+  FloatingActionButton floatingActionButtonPrevious()
+  {
+    return FloatingActionButton(
+      onPressed: () async{
+        await _carouselController.previousPage(
+            duration: Duration(milliseconds: 300), curve: Curves.linear);
+        player.stop();
+      },
+      child: Text('<-'),
+      backgroundColor: Colors.blue,
+      elevation: 0,
+
+    );
+  }
+
+  Container textDisplayWidgetOpposite(int index) {
+    return Container(
+      alignment: FractionalOffset.topCenter,
+      child: TextButton(
+        onPressed: () {
+          setState(() {
+            print("----- text click -----");
+            //languageState = !languageState;
+          });
+        },
+        child: Text(
+          repo.getJourdainEnglish(index),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            backgroundColor: Colors.blueGrey.withOpacity(.6),
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            fontSize: 36,
+          ),
+        ),
+      ),
+    );
+  }
+
   KenBurns imageDisplayWidget(int index) {
     // Use the KenBurns widget to pan across the images
     // See https://pub.dev/packages/kenburns
     return KenBurns(
       maxScale: 2,
-      minAnimationDuration: Duration(milliseconds: 10000),
-      maxAnimationDuration: Duration(milliseconds: 20000),
+      //minAnimationDuration: Duration(milliseconds: 10000),
+      //maxAnimationDuration: Duration(milliseconds: 20000),
       child: Image.asset(repo.getImageFile(index),
           fit: BoxFit.fitHeight, height: double.negativeInfinity),
     );

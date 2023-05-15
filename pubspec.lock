@@ -288,6 +288,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.27.3"
+  scroll_snap_list:
+    dependency: "direct main"
+    description:
+      name: scroll_snap_list
+      sha256: "3cba08ae8439e1bdd4bd1b6867dad6183c7fe2144f0b9332d8cc5f923c84d68a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.1"
   sky_engine:
     dependency: transitive
     description: flutter
